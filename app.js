@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var userRoute = require('./routes/users.js');
 var mongoose = require('mongoose');
+var routines = require('./routes/addRoutine.js');
 
 mongoose.connect('mongodb://10.0.0.183:27017/workUpp');
 
@@ -26,5 +27,7 @@ app.use(function(req, res, next){
 
 
 app.use('/users', userRoute);
+
+app.use('/addroutine', routines);
 
 app.listen(port);
