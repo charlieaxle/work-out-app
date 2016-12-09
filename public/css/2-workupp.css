@@ -1,0 +1,68 @@
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background-color: cornflowerblue;
+}
+
+body .container-fluid {
+    border: solid black 4px;
+    height: 100%;
+    margin: 3%;
+    background-color: darkgrey;
+}
+
+#appBox{
+    height: 100%;
+}
+
+#holder{
+    height: 100%;
+}
+
+#welcome {
+
+    text-align: center;
+    height: 30%;
+}
+
+#title {
+    font-family: Libre Baskerville;
+    font-weight: bold;
+    font-size: 50px;
+    margin-top: 10%;
+    font-size: 10vw;
+}
+
+#login {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    display: inline-block;
+    text-align:center;
+    margin: 0 auto;
+    padding: 0 px;
+    width: 80%;
+    height: 80px;
+}
+
+#inputBar {
+	height: 80px;
+	width: 65%;
+	box-shadow: 0 0 10px #9ecaed;
+	font-size: 200%;
+	
+}
+
+#search {
+        height: 80px;
+		width: 150px;
+	font-size: 200%;
+}
+
+#loginBucket {
+	margin-top : 0px;
+    text-align: center;
+}
