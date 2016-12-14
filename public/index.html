@@ -17,11 +17,36 @@
         </div>
         <div id="loginBucket">
             <form  id='login' onsubmit="return false">
+		<div class='row'>
                 <input type='search' placeholder='Enter Username' id='inputBar'>
                 </input>
-                <button id='search' type='button'>Log In</button>
+                <button id='logIn' type='button'>Log In</button>
+		</div>
+		<div class ='row'>
+		<button id='createUserForm' type='button'>Create New User!</button>
+		</div>
             </form>
         </div>
+  	<div id="createUserBucket">
+   
+  	<form>
+<div class ='row'>
+    <label>First Name</label>
+    <input type="text" id="fname" class='inputCreateUser'>
+</div>
+<div class ='row'>
+    <label>Last Name</label>
+    <input type="text" id="lname" class='inputCreateUser'>
+</div>
+<div class ='row'>
+    <label>User Name</label>
+   <input type="text" id="userName" class='inputCreateUser'>
+  </div>
+<div class ='row'>
+    <input type="submit" value="Submit" id="createUser">
+</div>
+  </form>
+</div>
     </div>
 </div>
 </body>

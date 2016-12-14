@@ -1,9 +1,9 @@
 $(document).ready(function(){
-	function createUser(val){
+	function createUser(vuserName, vfirstName,vlastName){
 		$.ajax({
 		type: 'POST',
 		dataType: 'HTTP',
-		data: {username: val},
+		data: {userName: vuserName, firstName: vfirstName, lastName: vlastName },
 		url:'../users',
     
    
@@ -12,8 +12,21 @@ $(document).ready(function(){
 		}
 		})
 	};
-$('#search').click(function() {
- userName = $("#inputBar").val();
-createUser(userName);
+$('#createUser').click(function() {
+ userName = $("#userName").val();
+ firstName = $("#fname").val();
+lastName=  $("#lname").val();
+createUser(userName ,firstName,lastName );
 });
+
+$('#createUserForm').click(function() {
+ $("#loginBucket").css("display","none");
+$("#createUserBucket").css("display","block");
+});
+
+
+
+
+
+
 });

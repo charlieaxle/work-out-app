@@ -8,7 +8,9 @@ router.get('/', function(req, res) {
 
 router.route('/').post(function(req, res) {
 	var newUser = new wuUser();
-	newUser.info.userName = req.body.username;
+	newUser.info.userName = req.body.userName;
+	newUser.info.firstName = req.body.firstName;
+	newUser.info.lastName = req.body.lastName;
 	newUser.info.joinDate = new Date();
 	newUser.save(function(err) {
 		if (err) throw err;
