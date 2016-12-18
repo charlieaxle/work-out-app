@@ -5,9 +5,9 @@
     <title>Title</title>
     <link rel="stylesheet" type="text/css" href="./css/2-workupp.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Libre+Baskerville">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-	<script src="./js/2-workupp.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="./js/2-workupp.js"></script>
 </head>
 <body>
 <div class="container-fluid" id="holder">
@@ -15,38 +15,89 @@
         <div class="jumbo-tron" id="welcome">
             <h3 id="title">WorkOut!</h3>
         </div>
+	<!--Home Screen-->
         <div id="loginBucket">
             <form  id='login' onsubmit="return false">
 		<div class='row'>
-                <input type='search' placeholder='Enter Username' id='inputBar'>
-                </input>
-                <button id='logIn' type='button'>Log In</button>
+                    <input type='search' placeholder='Enter Username' id='logInField'>
+                    </input>
+                    <button id='logIn' type='button'>Log In</button>
 		</div>
 		<div class ='row'>
-		<button id='createUserForm' type='button'>Create New User!</button>
+		    <button id='createUserForm' type='button'>Create New User!</button>
 		</div>
             </form>
         </div>
-  	<div id="createUserBucket">
-   
-  	<form>
-<div class ='row'>
-    <label>First Name</label>
-    <input type="text" id="fname" class='inputCreateUser'>
-</div>
-<div class ='row'>
-    <label>Last Name</label>
-    <input type="text" id="lname" class='inputCreateUser'>
-</div>
-<div class ='row'>
-    <label>User Name</label>
-   <input type="text" id="userName" class='inputCreateUser'>
-  </div>
-<div class ='row'>
-    <input type="submit" value="Submit" id="createUser">
-</div>
-  </form>
-</div>
+  	
+	<!--Create New User Screen-->
+        <div id="createUserBucket">
+  	    <form>
+	        <div class ='row'>
+                    <label>First Name</label>
+                    <input type="text" id="fname" class='inputCreateUser'>
+		</div>
+		<div class ='row'>
+    		    <label>Last Name</label>
+    		    <input type="text" id="lname" class='inputCreateUser'>
+		</div>
+		<div class ='row'>
+    	            <label>User Name</label>
+   		    <input type="text" id="userName" class='inputCreateUser'>
+  		</div>
+		<div class ='row'  >
+    		    <button id="createUser" type="button" onsubmit="return false">Submit</button>
+		</div>
+  	    </form>
+	</div>
+
+	<!--Show Routines-->
+        <div id="userRoutines" class="btn-group btn-matrix">
+	    <div class="row" id="routineGreeting">Hi User, select a workout routine to begin:
+		</div>
+		    <button id="createRoutine" type="button" onsubmit="return false">Add New Routine</button>
+		
+	</div>
+
+
+	<!--Create New User Screen-->
+        <div id="createRoutineBucket">
+  	    <form>
+	        <div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+		 <div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+ 		<div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+ 		<div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+ 		<div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+		 <div class ='row'>
+                    <input type="text" class='inputCreateRoutine'>
+		    <input type="text" class='inputCreateRoutine'>
+                    <input type="text" class='inputCreateRoutine'>
+		</div>
+		<div class ='row'  >
+    		    <button id="saveRoutine" type="button" onsubmit="return false">Save Routine</button>
+		</div>
+  	    </form>
+	</div>
+
     </div>
 </div>
 </body>

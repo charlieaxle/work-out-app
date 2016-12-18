@@ -18,6 +18,15 @@ router.route('/').post(function(req, res) {
 	});
 });
 
+router.route('/init/:user_nm').get(function(req,res){
+	wuUser.find({userName: req.params_user_nm}, function(err, data){
+		if (err) {
+			res.send(err);
+		}
+		res.json(data);
+	});
+});
+
 
 module.exports = router;
 

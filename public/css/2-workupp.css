@@ -48,7 +48,7 @@ body .container-fluid {
     height: 80px;
 }
 
-#inputBar {
+#logInField {
 	height: 80px;
 	width: 65%;
 	box-shadow: 0 0 10px #9ecaed;
@@ -107,4 +107,58 @@ font-size: 200%;
 
 label {
 	font-size: 200%;
+}
+
+
+
+
+/* Decorations */
+.btn-matrix {
+  margin: 20px;
+}
+
+
+#userRoutines {
+	margin-top : 0px;
+    text-align: center;
+	display : none;
+	font-family: Libre Baskerville;
+}
+
+.btn-default {
+	width: 30%;
+}
+
+
+.inputCreateRoutine {
+ 	width: 30%;
+ 	margin: 8px 0;
+	height: 80px;
+      display: inline-block;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+}
+
+
+#createRoutineBucket {
+	margin-top : 0px;
+    text-align: center;
+	display : none;
+}
+
+#saveRoutine, #createRoutine {
+ 
+	  width: 50%;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+height: 80px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+ border: 1px solid #ccc;
+	text-color: grey;
+font-size: 200%;
 }
