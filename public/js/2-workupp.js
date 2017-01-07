@@ -30,10 +30,28 @@ function getUserInfo(userName) {
 					$("#routineGreeting").append("</div>");	
 				}
 				$("#routineGreeting").append("<button type='button' class='btn btn-default'>"+data[0].routines[i].name+"</button>");
+			
 			}
+		console.log(JSON.stringify(data[0]._id));
+		CURRENT_USER_ID = data[0]._id;
+		return data[0];
 		}
 	})
 }
+
+function addRoutine( userID, newRoutineName) {
+	$.ajax({
+		type: 'PUT',
+		dataType: 'HTTP',
+		url:'../addroutine/'+userID,
+		data: {newRoutine: newRoutineName},
+		success: function(data) {
+			console.log('routine added');
+			console.log(newRoutineName);
+		}
+	})	
+}	
+
 
 $('#createUser').click(function() {
  userName = $("#userName").val();
@@ -57,15 +75,25 @@ $("#logIn").click(function() {
 	newUser = $('#logInField').val();
 	getUserInfo(newUser);
 
+	CURRENT_USER = newUser;
+
 });
 
 $('#createRoutine').click(function() {
  $("#userRoutines").css("display","none");
 $("#createRoutineBucket").css("display","block");
+	
 });
 
 
 
-
+$('#saveRoutine').click(function() {
+	var newRoutineName = $('#newRoutineName').val().toString();
+	console.log(CURRENT_USER_ID);
+	console.log(newRoutineName);
+	addRoutine(CURRENT_USER_ID, newRoutineName);
+	
+	
+});
 
 });
