@@ -20,6 +20,7 @@ function getUserInfo(userName) {
 		dataType: 'JSON',
 		url:'../users/init/'+userName,
 		success: function(data){
+			
 			$("#routineGreeting").html("Hi "+data[0].info.userName+" , select a workout routine to begin:");
 			for (var i =0; i< data[0].routines.length; i++) {
 				console.log(JSON.stringify(data[0].routines[i].name));
@@ -74,8 +75,8 @@ $("#logIn").click(function() {
 	$("#userRoutines").css("display","block");
 	newUser = $('#logInField').val();
 	getUserInfo(newUser);
-
 	CURRENT_USER = newUser;
+
 
 });
 
