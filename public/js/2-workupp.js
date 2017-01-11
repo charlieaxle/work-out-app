@@ -93,8 +93,19 @@ $('#saveRoutine').click(function() {
 	console.log(CURRENT_USER_ID);
 	console.log(newRoutineName);
 	addRoutine(CURRENT_USER_ID, newRoutineName);
+	$("#userRoutines").css("display","block");
+	$("#createRoutineBucket").css("display","none");
+	getUserInfo(newUser);
 	
-	
+});
+
+
+$('#logOut').click(function() {
+	$("#createRoutineBucket").css("display","none");
+	$("#userRoutines").css("display","none");
+	$("#createUserBucket").css("display","none");
+	$("#loginBucket").css("display","block");
+	CURRENT_USER= "";
 });
 
 });
