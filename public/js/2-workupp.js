@@ -19,6 +19,10 @@ function getUserInfo(userName) {
 		url:'../users/init/'+userName,
 		success: function(data){
 			
+			if (typeof data[0] === "undefined") {
+				alert("Username is incorrect");
+				return -1;
+			}
 			$("#routineGreeting").html("Hi "+data[0].info.userName+" , select a workout routine to begin:");
 			for (var i =0; i< data[0].routines.length; i++) {
 				if (i % 3 == 0) {
@@ -77,11 +81,18 @@ $('#createUserForm').click(function() {
 
 
 $("#logIn").click(function() {
-	$("#loginBucket").css("display","none");
-	$("#userRoutines").css("display","block");
+	
 	newUser = $('#logInField').val();
 	getUserInfo(newUser);
 	CURRENT_USER = newUser;
+	if (typeof CURRENT_USER_ID === "undefined" || CURRENT_USER_ID == 0) {
+		return -1;
+	}
+	else {
+	$("#loginBucket").css("display","none");
+	$("#userRoutines").css("display","block");
+	}
+	
 });
 
 
@@ -123,6 +134,7 @@ $('#logOut').click(function() {
 	$("#createUserBucket").css("display","none");
 	$("#loginBucket").css("display","block");
 	CURRENT_USER= "";
+	CURRENT_USER_ID= 0;
 });
 
 });
