@@ -40,13 +40,11 @@ function addRoutine( userID, newRoutineName, exArr) {
 	var dataObj = {};
 	dataObj['newRoutine'] = newRoutineName;
 
-	for (var i=0; i<exArr.length; i++){
-		dataObj[i] = exArr[i];
-	};
+	dataObj['exercises'] = exArr;
 
 	$.ajax({
 		type: 'PUT',
-		dataType: 'HTTP',
+		dataType: 'JSON',
 		url:'../addroutine/'+userID,
 		data: dataObj,
 		success: function(data) {
@@ -63,12 +61,16 @@ $('#createUser').click(function() {
 	createUser(userName ,firstName,lastName );
 	$("#createUserBucket").css("display","none");
 	$("#userRoutines").css("display","block");
+	getUserInfo(userName);
+	CURRENT_USER = userName;
+	$("#routineGreeting").html("Hi "+userName+" , select a workout routine to begin:");
 });
 
 
 $('#createUserForm').click(function() {
  	$("#loginBucket").css("display","none");
 	$("#createUserBucket").css("display","block");
+	
 	CURRENT_USER= userName ;
 });
 
@@ -94,19 +96,24 @@ $('#createRoutine').click(function() {
 $('#saveRoutine').click(function() {
 	var newRoutineName = $('#newRoutineName').val().toString();
 	var exArr = [];
-	var elements = document.getElementsByClassName('inputCreateRoutineName');
-	console.log(elements[1].value.toString());
-	for (var i=0; i< elements.length; i++){
-		if (elements[i].value !== ""){
-		
-			exArr.push(elements[i].value);
+	var elementsName = document.getElementsByClassName('inputCreateRoutineName');
+	var elementsSets = document.getElementsByClassName('inputCreateRoutineSets');
+	var elementsReps = document.getElementsByClassName('inputCreateRoutineReps');
+	for (var i=0; i< elementsName.length; i++){
+		if (elementsName[i].value !== ""){
+			tempObj = {};
+			tempObj.name = elementsName[i].value;
+			tempObj.sets = elementsSets[i].value;
+			tempObj.reps = elementsReps[i].value;
+			exArr.push(tempObj);
+			console.log(JSON.stringify(tempObj));
 		}
 	}
-
+	console.log(exArr);
 	addRoutine(CURRENT_USER_ID, newRoutineName, exArr);
 	$("#userRoutines").css("display","block");
 	$("#createRoutineBucket").css("display","none");
-	getUserInfo(newUser);
+	getUserInfo(CURRENT_USER);
 });
 
 
