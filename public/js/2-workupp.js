@@ -1,5 +1,9 @@
 $(document).ready(function(){
-	
+
+var CURRENT_USER;
+var CURRENT_USER_ID;
+var userData;	
+
 function createUser(vuserName, vfirstName,vlastName){
 		$.ajax({
 		type: 'POST',
@@ -31,14 +35,35 @@ function getUserInfo(userName) {
 				if (i % 3 == 2) {
 					$("#routineGreeting").append("</div>");	
 				}
-				$("#routineGreeting").append("<button type='button' class='btn btn-default'>"+data[0].routines[i].name+"</button>");
+				$("#routineGreeting").append("<button type='button' class='btn btn-default routineButton'>"+data[0].routines[i].name+"</button>");
 			
 			}
+		userData = data[0];
+		$('.routineButton').each(function() {
+			$(this).click(function() {
+				startRoutine($(this).text());
+				
+			});
+		});
 		CURRENT_USER_ID = data[0]._id;
 		return data[0];
 		}
 	})
 }
+
+
+function startRoutine(routineName) {
+	var routineExercises = userData.routines.filter(function(obj) {
+		console.log(routineName);
+		return obj.name == routineName;
+	});
+	console.log(JSON.stringify(routineExercises));
+
+}
+
+
+
+
 
 function addRoutine( userID, newRoutineName, exArr) {
 	var dataObj = {};
@@ -125,6 +150,10 @@ $('#saveRoutine').click(function() {
 	$("#userRoutines").css("display","block");
 	$("#createRoutineBucket").css("display","none");
 	getUserInfo(CURRENT_USER);
+
+	$(".inputCreateRoutineName, .inputCreateRoutineSets, .inputCreateRoutineReps").each(function(){
+		this.value = "";
+	});
 });
 
 
